@@ -30,24 +30,13 @@ video {
 <video
     id="video"
     autoplay
-    muted
     playsinline
     loop
     preload="auto">
-    
+
     <source src="evolusi.mp4" type="video/mp4">
 
 </video>
-
-<script>
-const video = document.getElementById("video");
-
-video.muted = true;
-
-video.play().catch(function() {
-    console.log("Autoplay blocked");
-});
-</script>
 
 </body>
 </html>
