@@ -2,9 +2,10 @@
 <html lang="ms">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-<title>EVOLUSI COE 2025</title>
+<title>PKG Chenderong Balai</title>
 
 <style>
 html, body {
@@ -12,7 +13,7 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    background: #000;
+    background: black;
     overflow: hidden;
 }
 
@@ -28,15 +29,49 @@ video {
 <body>
 
 <video
-    id="video"
+    id="player"
     autoplay
     playsinline
-    loop
     preload="auto">
-
-    <source src="evolusi.mp4" type="video/mp4">
-
 </video>
+
+<script>
+
+const videos = [
+    "evolusi25.mp4",
+    "evolusi24.mp4",
+];
+
+let currentVideo = 0;
+
+const player = document.getElementById("player");
+
+function playVideo() {
+
+    player.src = videos[currentVideo];
+
+    player.load();
+
+    player.play().catch(function(error) {
+        console.log("Autoplay:", error);
+    });
+}
+
+player.addEventListener("ended", function() {
+
+    currentVideo++;
+
+    if (currentVideo >= videos.length) {
+        currentVideo = 0;
+    }
+
+    playVideo();
+
+});
+
+playVideo();
+
+</script>
 
 </body>
 </html>
